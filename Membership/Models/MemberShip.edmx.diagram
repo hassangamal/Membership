@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dfa01f47f6994ca0bdd8e50baf188159" Name="Diagram1">
+        <EntityTypeShape EntityType="MembershipModel.Item" Width="1.5" PointX="8" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MembershipModel.ItemType" Width="1.5" PointX="5.125" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MembershipModel.Part" Width="1.5" PointX="4.625" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MembershipModel.Product" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MembershipModel.ProductItem" Width="1.5" PointX="5.125" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MembershipModel.ProductLinkText" Width="1.5" PointX="0.5" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MembershipModel.ProductType" Width="1.5" PointX="2.125" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="MembershipModel.Section" Width="1.5" PointX="6.25" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="MembershipModel.Subscription" Width="1.5" PointX="3.375" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MembershipModel.SubscriptionProduct" Width="1.5" PointX="6.125" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MembershipModel.UserSubscription" Width="1.5" PointX="0.75" PointY="0.5" IsExpanded="true" />
+        <AssociationConnector Association="MembershipModel.FK__Item__ItemTypeID__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="MembershipModel.FK__Item__PartID__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="MembershipModel.FK__Item__SectionID__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="MembershipModel.FK__ProductIt__ItemI__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="MembershipModel.FK__Product__Product__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="MembershipModel.FK__Product__Product__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="MembershipModel.FK__ProductIt__Produ__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="MembershipModel.FK__Subscript__Produ__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="MembershipModel.FK__Subscript__Subsc__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="MembershipModel.FK__UserSubsc__Subsc__3E52440B" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
