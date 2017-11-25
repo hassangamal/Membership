@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MembershipModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Item">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="ItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Descriptions" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Url" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ImageUrl" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="HTML" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="WaitDays" Type="int" Nullable="false" />
+    <Property Name="HTMLShort" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="IsFree" Type="bit" />
+    <Property Name="ProductId" Type="int" Nullable="false" />
+    <Property Name="SectionID" Type="int" />
+    <Property Name="ItemTypeID" Type="int" />
+    <Property Name="PartID" Type="int" />
+  </EntityType>
+  <EntityType Name="ItemType">
+    <Key>
+      <PropertyRef Name="ItemTypeID" />
+    </Key>
+    <Property Name="ItemTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Part">
+    <Key>
+      <PropertyRef Name="PartID" />
+    </Key>
+    <Property Name="PartID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Descriptions" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ImageUrl" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ProductLinkTextID" Type="int" />
+    <Property Name="ProductTypeID" Type="int" />
+  </EntityType>
+  <EntityType Name="ProductItem">
+    <Key>
+      <PropertyRef Name="ProductItemID" />
+    </Key>
+    <Property Name="ProductItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="ItemID" Type="int" />
+    <Property Name="OldProductID" Type="int" Nullable="false" />
+    <Property Name="OldItemID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductLinkText">
+    <Key>
+      <PropertyRef Name="ProductLinkTextID" />
+    </Key>
+    <Property Name="ProductLinkTextID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductType">
+    <Key>
+      <PropertyRef Name="ProductTypeID" />
+    </Key>
+    <Property Name="ProductTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Section">
+    <Key>
+      <PropertyRef Name="SectionID" />
+    </Key>
+    <Property Name="SectionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Subscription">
+    <Key>
+      <PropertyRef Name="SubscriptionID" />
+    </Key>
+    <Property Name="SubscriptionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Descriptions" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="RegistrationCode" Type="varchar" MaxLength="255" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubscriptionProduct">
+    <Key>
+      <PropertyRef Name="SubscriptionProductID" />
+    </Key>
+    <Property Name="SubscriptionProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductID" Type="int" />
+    <Property Name="SubscriptionID" Type="int" />
+    <Property Name="OldProductID" Type="int" Nullable="false" />
+    <Property Name="OldSubscriptionID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserSubscription">
+    <Key>
+      <PropertyRef Name="UserSubscriptionID" />
+    </Key>
+    <Property Name="UserSubscriptionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SubscriptionID" Type="int" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Item__ItemTypeID__286302EC">
+    <End Role="ItemType" Type="Self.ItemType" Multiplicity="0..1" />
+    <End Role="Item" Type="Self.Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItemType">
+        <PropertyRef Name="ItemTypeID" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="ItemTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Item__PartID__29572725">
+    <End Role="Part" Type="Self.Part" Multiplicity="0..1" />
+    <End Role="Item" Type="Self.Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Part">
+        <PropertyRef Name="PartID" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="PartID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Item__SectionID__276EDEB3">
+    <End Role="Section" Type="Self.Section" Multiplicity="0..1" />
+    <End Role="Item" Type="Self.Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Section">
+        <PropertyRef Name="SectionID" />
+      </Principal>
+      <Dependent Role="Item">
+        <PropertyRef Name="SectionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Product__Product__30F848ED">
+    <End Role="ProductLinkText" Type="Self.ProductLinkText" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductLinkText">
+        <PropertyRef Name="ProductLinkTextID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="ProductLinkTextID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Product__Product__31EC6D26">
+    <End Role="ProductType" Type="Self.ProductType" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductType">
+        <PropertyRef Name="ProductTypeID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="ProductTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProductIt__ItemI__3B75D760">
+    <End Role="Item" Type="Self.Item" Multiplicity="0..1" />
+    <End Role="ProductItem" Type="Self.ProductItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Item">
+        <PropertyRef Name="ItemID" />
+      </Principal>
+      <Dependent Role="ProductItem">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ProductIt__Produ__3A81B327">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="ProductItem" Type="Self.ProductItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ProductItem">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Subscript__Produ__36B12243">
+    <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+    <End Role="SubscriptionProduct" Type="Self.SubscriptionProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="SubscriptionProduct">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Subscript__Subsc__37A5467C">
+    <End Role="Subscription" Type="Self.Subscription" Multiplicity="0..1" />
+    <End Role="SubscriptionProduct" Type="Self.SubscriptionProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subscription">
+        <PropertyRef Name="SubscriptionID" />
+      </Principal>
+      <Dependent Role="SubscriptionProduct">
+        <PropertyRef Name="SubscriptionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserSubsc__Subsc__3E52440B">
+    <End Role="Subscription" Type="Self.Subscription" Multiplicity="0..1" />
+    <End Role="UserSubscription" Type="Self.UserSubscription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subscription">
+        <PropertyRef Name="SubscriptionID" />
+      </Principal>
+      <Dependent Role="UserSubscription">
+        <PropertyRef Name="SubscriptionID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MembershipModelStoreContainer">
+    <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ItemType" EntityType="Self.ItemType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Part" EntityType="Self.Part" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductItem" EntityType="Self.ProductItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductLinkText" EntityType="Self.ProductLinkText" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductType" EntityType="Self.ProductType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Section" EntityType="Self.Section" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Subscription" EntityType="Self.Subscription" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubscriptionProduct" EntityType="Self.SubscriptionProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserSubscription" EntityType="Self.UserSubscription" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Item__ItemTypeID__286302EC" Association="Self.FK__Item__ItemTypeID__286302EC">
+      <End Role="ItemType" EntitySet="ItemType" />
+      <End Role="Item" EntitySet="Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Item__PartID__29572725" Association="Self.FK__Item__PartID__29572725">
+      <End Role="Part" EntitySet="Part" />
+      <End Role="Item" EntitySet="Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Item__SectionID__276EDEB3" Association="Self.FK__Item__SectionID__276EDEB3">
+      <End Role="Section" EntitySet="Section" />
+      <End Role="Item" EntitySet="Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Product__Product__30F848ED" Association="Self.FK__Product__Product__30F848ED">
+      <End Role="ProductLinkText" EntitySet="ProductLinkText" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Product__Product__31EC6D26" Association="Self.FK__Product__Product__31EC6D26">
+      <End Role="ProductType" EntitySet="ProductType" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProductIt__ItemI__3B75D760" Association="Self.FK__ProductIt__ItemI__3B75D760">
+      <End Role="Item" EntitySet="Item" />
+      <End Role="ProductItem" EntitySet="ProductItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ProductIt__Produ__3A81B327" Association="Self.FK__ProductIt__Produ__3A81B327">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ProductItem" EntitySet="ProductItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Subscript__Produ__36B12243" Association="Self.FK__Subscript__Produ__36B12243">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="SubscriptionProduct" EntitySet="SubscriptionProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Subscript__Subsc__37A5467C" Association="Self.FK__Subscript__Subsc__37A5467C">
+      <End Role="Subscription" EntitySet="Subscription" />
+      <End Role="SubscriptionProduct" EntitySet="SubscriptionProduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserSubsc__Subsc__3E52440B" Association="Self.FK__UserSubsc__Subsc__3E52440B">
+      <End Role="Subscription" EntitySet="Subscription" />
+      <End Role="UserSubscription" EntitySet="UserSubscription" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
