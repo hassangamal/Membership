@@ -1,4 +1,4 @@
-﻿@model global::Membership.Models.Section
+﻿@model global::Membership.Models.ItemType
 
 @{
     ViewBag.Title = "Details";
@@ -7,7 +7,7 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Section</h4>
+    <h4>ItemType</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -20,6 +20,6 @@
     </dl>
 </div>
 <p>
-    @Html.Partial("_EditButtonPartial",Model.SectionID)
+    @Html.Partial("_EditButtonPartial",Model.ItemTypeID)
     @Html.Partial("_BackToListButtonPartial")
 </p>
