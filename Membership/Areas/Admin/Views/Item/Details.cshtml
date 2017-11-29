@@ -1,0 +1,114 @@
+﻿@model global::Membership.Models.Item
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Item</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descriptions)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descriptions)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Url)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HTML)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HTML)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WaitDays)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WaitDays)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HTMLShort)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HTMLShort)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsFree)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsFree)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ItemType.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ItemType.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Part.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Part.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Section.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Section.Title)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.Partial("_EditButtonPartial", Model.ItemID)
+    @Html.Partial("_BackToListButtonPartial")
+</p>

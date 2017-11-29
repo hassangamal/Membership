@@ -1,0 +1,58 @@
+﻿@model global::Membership.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descriptions)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descriptions)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImageUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductLinkText.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductLinkText.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductType.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductType.Title)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.Partial("_EditButtonPartial", Model.ProductID)
+    @Html.Partial("_BackToListButtonPartial")
+</p>

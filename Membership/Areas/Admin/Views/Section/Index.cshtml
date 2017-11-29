@@ -15,6 +15,7 @@
             @Html.DisplayNameFor(model => model.Title)
         </th>
         <th></th>
+
     </tr>
 
     @foreach (var item in Model)
@@ -23,7 +24,8 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
-            @Html.Partial("_TableButtonPartial", new SmallButtonModel { Id=item.SectionID})
+                @Html.Partial("_TableButtonPartial", new SmallButtonModel { Id = item.SectionID })
+            
         </tr>
     }
 

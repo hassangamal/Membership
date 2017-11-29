@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<global::Membership.Models.ItemType>
 @using Membership.Areas.Admin.Models;
 @{
-        ViewBag.Title = "Index";
+    ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
@@ -23,7 +23,8 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
-            @Html.Partial("_TableButtonPartial", new SmallButtonModel { Id=item.ItemTypeID})
+                @Html.Partial("_TableButtonPartial", new SmallButtonModel { Id = item.ItemTypeID })
+            
         </tr>
     }
 

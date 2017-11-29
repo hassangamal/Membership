@@ -28,7 +28,7 @@ namespace Membership.Models
         public string HTML { get; set; }
         public int WaitDays { get; set; }
         public string HTMLShort { get; set; }
-        public Nullable<bool> IsFree { get; set; }
+        public bool IsFree { get; set; }
         public int ProductId { get; set; }
         public Nullable<int> SectionID { get; set; }
         public Nullable<int> ItemTypeID { get; set; }
